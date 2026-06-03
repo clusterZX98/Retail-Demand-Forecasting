@@ -63,11 +63,32 @@ This project aims to:
 
 ### Libraries
 
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Plotly
+pandas
+numpy
+matplotlib
+plotly
+seaborn
+scikit-learn
+xgboost
+lightgbm
+prophet
+tensorflow
+fastapi
+uvicorn
+pymongo
+sqlalchemy
+python-dotenv
+mlflow
+evidently
+joblib
+requests
+pydantic
+jinja2
+catboost
+statsmodels
+
+
+
 
 ### Dashboard Framework (Optional)
 
