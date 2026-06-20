@@ -1,0 +1,45 @@
+pandas
+numpy
+matplotlib
+plotly
+seaborn
+scikit-learn
+xgboost
+lightgbm
+prophet
+tensorflow
+fastapi
+uvicorn
+streamlit
+pymongo
+sqlalchemy
+python-dotenv
+mlflow
+evidently
+joblib
+requests
+pydantic
+jinja2
+catboost
+statsmodels
+
+
+
+
+libraries = [
+    "pandas", "numpy", "matplotlib", "plotly",
+    "seaborn", "sklearn", "xgboost", "lightgbm",
+    "prophet", "tensorflow", "fastapi",
+    "uvicorn", "streamlit", "pymongo",
+    "sqlalchemy", "dotenv", "mlflow",
+    "evidently", "joblib", "requests",
+    "pydantic", "jinja2", "catboost",
+    "statsmodels"
+]
+
+for lib in libraries:
+    try:
+        __import__(lib)
+        print(f"✅ {lib} Installed")
+    except ImportError:
+        print(f"❌ {lib} Not Installed")
