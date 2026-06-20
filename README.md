@@ -378,4 +378,3 @@ This project is licensed under the MIT License.
 * Streamlit Community
 
 ⭐ If you found this project useful, consider giving it a star on GitHub.
-
