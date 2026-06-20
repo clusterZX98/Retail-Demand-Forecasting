@@ -1,380 +1,330 @@
-# 🛒 Walmart Store Sales Analysis Dashboard
+# Retail Demand Forecasting and Inventory Optimization System
 
-## 1. Project Title
+## Project Overview
 
-**Walmart Store Sales Analysis & Forecasting Dashboard**
+Retail businesses rely heavily on accurate demand forecasting to maintain the right inventory levels, reduce stockouts, avoid overstocking, and improve profitability. Traditional forecasting methods often fail to capture seasonal trends, promotional impacts, and rapidly changing customer behavior.
 
-A data analytics project that explores Walmart store performance using historical weekly sales data. The project uncovers sales trends, holiday impacts, economic influences, and store-level performance through data analysis and interactive visualizations.
+This project presents an end-to-end retail demand forecasting and inventory optimization platform designed to address these challenges using machine learning, time series forecasting, and business intelligence techniques.
 
----
+The system predicts future product demand across multiple time horizons and provides actionable recommendations for inventory planning, pricing strategies, and replenishment decisions.
 
-## 2. Problem Statement
+In addition to forecasting, the platform includes a complete MLOps workflow with model tracking, API integration, dashboard visualization, containerization, and cloud deployment.
 
-Retail businesses generate massive amounts of sales data every week. Understanding sales patterns, identifying key drivers, and predicting future performance are critical for making informed business decisions.
+## Key Features
 
-This project aims to:
+### Demand Forecasting
 
-* Analyze Walmart's historical weekly sales data.
-* Identify factors affecting sales performance.
-* Understand holiday season impacts on revenue.
-* Evaluate economic indicators such as fuel price, CPI, and unemployment.
-* Create actionable insights for store managers and business stakeholders.
-* Build a foundation for future sales forecasting models.
+* Daily sales prediction
+* Weekly demand forecasting
+* Monthly demand forecasting
+* Multi-model forecasting framework
 
----
+### Inventory Optimization
 
-## 3. Features
+* Reorder point calculation
+* Safety stock estimation
+* Overstock detection
+* Inventory health monitoring
 
-### 📊 Data Analysis
+### Business Analytics Dashboard
 
-* Weekly sales trend analysis
-* Store-wise sales comparison
-* Holiday vs Non-Holiday sales performance
-* Economic indicator analysis
+* Revenue trend analysis
+* Product performance tracking
+* Category-level insights
+* Seasonal demand patterns
+* Festival and promotional impact analysis
 
-### 📈 Interactive Visualizations
+### Dynamic Pricing Recommendations
 
-* Sales trend charts
-* Store performance dashboards
-* Correlation heatmaps
-* Seasonal analysis
+* Price adjustment suggestions
+* Promotion effectiveness analysis
+* Demand-based pricing opportunities
 
-### 🧠 Business Insights
+### Real-Time Alerts
 
-* Best-performing stores
-* Worst-performing stores
-* Impact of unemployment on sales
-* Impact of fuel prices on consumer spending
+* Low inventory notifications
+* High demand alerts
+* Overstock warnings
 
-### 🔮 Future Scope
+## Technology Stack
 
-* Sales forecasting using Machine Learning
-* Demand prediction
-* Inventory optimization
-* Automated reporting system
+### Backend
 
----
+* Python
+* FastAPI
+* PostgreSQL
+* SQLAlchemy
 
-## 4. Tech Stack
+### Machine Learning and Forecasting
 
-### Programming Language
+* Scikit-Learn
+* XGBoost
+* LightGBM
+* CatBoost
+* Prophet
+* TensorFlow and Keras
+* Statsmodels
 
-* Python 3.10+
+### MLOps and Monitoring
 
-### Libraries
+* MLflow
+* Evidently AI
+* Docker
+* GitHub Actions
 
-pandas
-numpy
-matplotlib
-plotly
-seaborn
-scikit-learn
-xgboost
-lightgbm
-prophet
-tensorflow
-fastapi
-uvicorn
-pymongo
-sqlalchemy
-python-dotenv
-mlflow
-evidently
-joblib
-requests
-pydantic
-jinja2
-catboost
-statsmodels
-
-
-
-
-### Dashboard Framework (Optional)
+### Frontend and Visualization
 
 * Streamlit
+* Plotly
 
-### Development Tools
+### Deployment
 
-* VS Code
-* Jupyter Notebook
-* Git
-* GitHub
+* Docker
+* Render
+* Railway
+* AWS EC2
 
----
+## System Architecture
 
-## 5. Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/yourusername/walmart-sales-analysis.git
+```text
+Dataset
+   │
+   ▼
+Data Ingestion
+   │
+   ▼
+Data Validation
+   │
+   ▼
+Feature Engineering
+   │
+   ▼
+Model Training
+   │
+   ▼
+Model Evaluation
+   │
+   ▼
+Model Registry (MLflow)
+   │
+   ▼
+FastAPI Backend
+   │
+   ▼
+Streamlit Dashboard
+   │
+   ▼
+Docker Containers
+   │
+   ▼
+Cloud Deployment
 ```
-
-### Navigate to Project Folder
-
-```bash
-cd walmart-sales-analysis
-```
-
-### Create Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### Activate Virtual Environment
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / Mac:
-
-```bash
-source venv/bin/activate
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 6. Usage
-
-### Run Analysis Notebook
-
-```bash
-jupyter notebook
-```
-
-Open:
-
-```bash
-Walmart_Sales_Analysis.ipynb
-```
-
-### Run Streamlit Dashboard
-
-```bash
-streamlit run app.py
-```
-
-Dashboard will be available at:
-
-```bash
-http://localhost:8501
-```
-
----
-
-## Dataset Information
-
-### Source
-
-Walmart Store Sales Dataset
-
-### Dataset Size
-
-* Records: 6,435
-* Features: 8
-
-### Columns
-
-| Feature      | Description                                      |
-| ------------ | ------------------------------------------------ |
-| Store        | Store Number                                     |
-| Date         | Weekly Date                                      |
-| Weekly_Sales | Weekly Revenue                                   |
-| Holiday_Flag | Holiday Indicator (1 = Holiday, 0 = Non-Holiday) |
-| Temperature  | Temperature in Region                            |
-| Fuel_Price   | Regional Fuel Price                              |
-| CPI          | Consumer Price Index                             |
-| Unemployment | Unemployment Rate                                |
-
----
-
-## Key Business Questions
-
-1. Which stores generate the highest revenue?
-2. How do holidays affect sales?
-3. Does fuel price impact sales?
-4. How does unemployment affect consumer spending?
-5. What are the seasonal sales patterns?
-6. Which factors are most correlated with sales?
-
----
-
-## 7. API Endpoints
-
-### If Using Streamlit Only
-
-No backend API is required.
-
-### Future FastAPI Integration
-
-#### Get Overall Sales
-
-```http
-GET /sales/overall
-```
-
-#### Get Store Sales
-
-```http
-GET /sales/store/{store_id}
-```
-
-#### Holiday Sales Analysis
-
-```http
-GET /sales/holiday
-```
-
-#### Sales Forecast
-
-```http
-POST /forecast
-```
-
-Request:
-
-```json
-{
-    "store_id": 1,
-    "weeks": 12
-}
-```
-
-Response:
-
-```json
-{
-    "predicted_sales": [...]
-}
-```
-
----
-
-## 8. Screenshots
-
-### Dashboard Overview
-
-Insert Screenshot Here
-
-```markdown
-![Dashboard](images/dashboard.png)
-```
-
-### Sales Trend Analysis
-
-```markdown
-![Sales Trend](images/sales_trend.png)
-```
-
-### Correlation Heatmap
-
-```markdown
-![Heatmap](images/heatmap.png)
-```
-
-### Store Performance Dashboard
-
-```markdown
-![Store Analysis](images/store_analysis.png)
-```
-
----
-
-## 9. Deployment
-
-### Streamlit Cloud
-
-```bash
-https://your-app-name.streamlit.app
-```
-
-### Render
-
-```bash
-https://your-app-name.onrender.com
-```
-
-### Railway
-
-```bash
-https://your-app-name.up.railway.app
-```
-
-### Deployment Steps
-
-1. Push project to GitHub.
-2. Connect repository to Streamlit Cloud or Render.
-3. Configure dependencies using `requirements.txt`.
-4. Deploy application.
-5. Share public dashboard URL.
-
----
 
 ## Project Structure
 
 ```text
-walmart-sales-analysis/
+retail-demand-forecasting-system/
+
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── artifacts/
+│   ├── models/
+│   ├── scaler/
+│   └── reports/
+│
+├── config/
+│   └── config.yaml
 │
 ├── data/
-│   └── Walmart_Store_sales.csv
+│   ├── raw/
+│   ├── processed/
+│   └── external/
 │
-├── notebooks/
-│   └── Walmart_Sales_Analysis.ipynb
+├── notebook/
+│   ├── eda.ipynb
+│   ├── feature_engineering.ipynb
+│   └── model_training.ipynb
 │
-├── dashboard/
+├── src/
+│   ├── components/
+│   ├── pipeline/
+│   ├── utils/
+│   └── entity/
+│
+├── frontend/
+│   └── streamlit_app.py
+│
+├── api/
 │   └── app.py
 │
-├── images/
-│   ├── dashboard.png
-│   ├── heatmap.png
-│   └── sales_trend.png
-│
+├── templates/
+├── static/
+├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
+├── setup.py
 ├── README.md
 └── .gitignore
 ```
 
----
+## Dataset
 
-## 10. Contributors
+The project uses historical retail sales data collected at the product and store levels.
 
-### Piyush Rawat
+Typical features include:
 
-* Data Analysis
-* Dashboard Development
-* Business Insights
-* Documentation
+* Date
+* Store ID
+* Product ID
+* Category
+* Units Sold
+* Selling Price
+* Promotion Information
+* Holiday Indicator
+* Inventory Level
+* Weather Data
+* Regional Information
 
-GitHub:
+The dataset is divided into training, validation, and testing sets to ensure robust model evaluation.
 
-```text
-https://github.com/yourusername
+## Machine Learning Pipeline
+
+### 1. Data Ingestion
+
+Raw data is collected from multiple sources and stored in the data layer.
+
+### 2. Data Validation
+
+Data quality checks are performed to identify missing values, duplicate records, schema mismatches, and anomalies.
+
+### 3. Feature Engineering
+
+Key features include:
+
+* Lag features
+* Rolling averages
+* Seasonal indicators
+* Holiday flags
+* Price elasticity measures
+* Promotion indicators
+* Demand trends
+
+### 4. Model Training
+
+Multiple forecasting models are trained and compared, including:
+
+* Prophet
+* XGBoost
+* LightGBM
+* CatBoost
+* LSTM Networks
+
+### 5. Model Evaluation
+
+Models are evaluated using:
+
+* MAE
+* RMSE
+* MAPE
+* R² Score
+
+The best-performing model is registered and versioned using MLflow.
+
+## Dashboard
+
+The Streamlit dashboard provides an interactive interface for business users and analysts.
+
+Key dashboard components include:
+
+* Demand forecasts by product and store
+* Inventory optimization recommendations
+* Revenue and sales trends
+* Product performance analysis
+* Seasonal demand patterns
+* Dynamic pricing suggestions
+* Alert monitoring system
+
+Interactive visualizations are built using Plotly to deliver a modern business intelligence experience.
+
+## Results
+
+The forecasting system enables retailers to:
+
+* Improve demand prediction accuracy
+* Reduce stockout events
+* Lower excess inventory costs
+* Optimize reorder decisions
+* Increase operational efficiency
+* Enhance customer satisfaction
+
+Performance metrics and business outcomes will vary depending on the dataset and forecasting horizon.
+
+## Deployment
+
+The application is fully containerized using Docker and supports multiple deployment options.
+
+### Local Development
+
+```bash
+git clone https://github.com/your-username/Retail-Demand-Forecasting.git
+
+cd Retail-Demand-Forecasting
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
 ```
 
----
+Run the API server:
+
+```bash
+uvicorn api.app:app --reload
+```
+
+Run the dashboard:
+
+```bash
+streamlit run frontend/streamlit_app.py
+```
+
+Run using Docker:
+
+```bash
+docker-compose up --build
+```
+
+## CI/CD
+
+GitHub Actions automates:
+
+* Code quality checks
+* Dependency installation
+* Testing
+* Docker image builds
+* Deployment workflows
+
+## Future Improvements
+
+Planned enhancements include:
+
+* Real-time streaming data pipelines
+* Automated retraining workflows
+* Multi-store forecasting support
+* Explainable AI integration
+* Advanced price elasticity modeling
+* Supplier lead time optimization
+* Recommendation engine for promotions
+* Demand sensing using external signals
+* Integration with ERP systems
+
+## Contributing
+
+Contributions, feature requests, and suggestions are welcome. Feel free to open an issue or submit a pull request.
 
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-## Acknowledgements
-
-* Walmart Sales Dataset
-* Python Open Source Community
-* Pandas Documentation
-* Streamlit Community
-
-⭐ If you found this project useful, consider giving it a star on GitHub.
